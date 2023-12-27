@@ -1,4 +1,4 @@
-#Jimmyss' blog😺
+# Jimmyss' blog😺
 Really appreciate your visiting my blog!🫶
 I will occasionally update my thoughts and ideas of:
   - technology🧑‍💻
