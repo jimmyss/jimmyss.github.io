@@ -8,4 +8,5 @@ I will occasionally update my thoughts and ideas of:
   - 📖 books
   - 🔔 everyday life
   - 🫨 blablabla...
-Hope you enjoy it👍, and may my blogs bring you thinking🚀.
+
+Anyway, hope you enjoy it👍, and may my blogs bring you more thinking🚀.
