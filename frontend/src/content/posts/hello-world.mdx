@@ -1,0 +1,33 @@
+---
+title: "Hello, World — Building My Personal Site with Next.js 15"
+date: "2026-03-07"
+tags: ["Next.js", "TypeScript", "Tailwind CSS"]
+excerpt: "A quick overview of how I built this site — the tech stack, design decisions, and what's coming next."
+---
+
+Welcome to my personal website! This is the first post, so let me walk through how I put this together.
+
+## Tech Stack
+
+The site is built with:
+
+- **Next.js 15** with the App Router — pages are React Server Components by default, which keeps the client bundle small.
+- **TypeScript** — types catch bugs before they happen.
+- **Tailwind CSS v4** — utility-first styling with the new CSS-first configuration.
+- **MDX** — blog posts are `.mdx` files that live right in the repository. No CMS, no database — just files.
+
+## Why Static Export?
+
+The site deploys to GitHub Pages via `output: 'export'`, which turns everything into plain HTML/CSS/JS at build time. That means:
+
+- Zero server costs
+- Fast load times everywhere
+- Simple deployment via GitHub Actions
+
+## What's Next
+
+- More blog posts about things I'm learning and building
+- Fill out the Projects page with real work
+- Maybe add search for blog posts when there are enough of them
+
+Thanks for stopping by!
