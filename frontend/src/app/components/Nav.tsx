@@ -16,7 +16,7 @@ export default function Nav() {
           href="/"
           className="font-bold text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shrink-0"
         >
-          Jimmy
+          S1m0n Not Found
         </Link>
 
         <div className="flex items-center gap-1">
