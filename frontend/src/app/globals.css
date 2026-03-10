@@ -125,3 +125,100 @@
     0 0 16px #34d399,
     0 0 36px #34d39966;
 }
+
+/* ── Cyber hover effects ─────────────────────────────────────────── */
+
+/* Scan-line sweep animation used by both btn-cyber and nav-cyber */
+@keyframes cyber-scan {
+  from { transform: translateX(-200%); }
+  to   { transform: translateX(300%); }
+}
+
+/**
+ * btn-cyber — solid / pill buttons
+ * Use on: primary CTA buttons, secondary buttons, nav link pills
+ * Usage: add class="btn-cyber" and remove Tailwind hover:* / transition-colors
+ */
+.btn-cyber {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+/* scan line */
+.btn-cyber::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.25), transparent);
+  transform: translateX(-200%);
+  pointer-events: none;
+}
+
+.btn-cyber:hover::after {
+  animation: cyber-scan 0.45s ease-out forwards;
+}
+
+.btn-cyber:hover {
+  background-color: #090909;
+  color: #34d399;
+  /* 0 0 0 1px simulates a border without layout shift */
+  box-shadow:
+    0 0 0 1px #10b981,
+    0 0 10px rgba(16, 185, 129, 0.35),
+    0 0 22px rgba(16, 185, 129, 0.12);
+}
+
+.dark .btn-cyber:hover {
+  background-color: #050505;
+  color: #6ee7b7;
+  box-shadow:
+    0 0 0 1px #34d399,
+    0 0 12px rgba(52, 211, 153, 0.45),
+    0 0 26px rgba(52, 211, 153, 0.18);
+}
+
+/**
+ * link-cyber — text / arrow links
+ * Use on: "GitHub ↗", "← All posts", "All projects →", etc.
+ * Usage: add class="link-cyber" and remove Tailwind hover:* / transition-colors
+ */
+.link-cyber {
+  position: relative;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+
+/* underline draws in from left */
+.link-cyber::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #10b981;
+  box-shadow: 0 0 4px rgba(16, 185, 129, 0.7);
+  transition: width 0.25s ease-out;
+}
+
+.link-cyber:hover {
+  color: #10b981;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.45);
+}
+
+.link-cyber:hover::after {
+  width: 100%;
+}
+
+.dark .link-cyber:hover {
+  color: #34d399;
+  text-shadow: 0 0 8px rgba(52, 211, 153, 0.45);
+}
+
+.dark .link-cyber::after {
+  background: #34d399;
+  box-shadow: 0 0 4px rgba(52, 211, 153, 0.7);
+}

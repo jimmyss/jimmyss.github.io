@@ -102,7 +102,7 @@ export default function ProjectsPage() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 link-cyber"
                 >
                   GitHub ↗
                 </a>
@@ -111,7 +111,7 @@ export default function ProjectsPage() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                    className="text-emerald-600 dark:text-emerald-400 link-cyber"
                   >
                     Live ↗
                   </a>

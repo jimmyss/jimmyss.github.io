@@ -60,13 +60,13 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/projects"
-              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-medium transition-colors"
+              className="px-5 py-2.5 bg-emerald-600 dark:bg-emerald-500 text-white rounded-lg font-medium btn-cyber"
             >
               See my Projects!
             </Link>
             <Link
               href="/blog"
-              className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors"
+              className="px-5 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg font-medium btn-cyber"
             >
               Read My Blogs!
             </Link>
@@ -80,7 +80,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Featured Projects</h2>
-          <Link href="/projects" className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline">
+          <Link href="/projects" className="text-sm text-emerald-600 dark:text-emerald-400 link-cyber">
             All projects →
           </Link>
         </div>
@@ -100,11 +100,11 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="flex gap-3 text-sm">
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 link-cyber">
                   GitHub ↗
                 </a>
                 {project.live && (
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 hover:underline">
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 link-cyber">
                     Live ↗
                   </a>
                 )}
@@ -120,7 +120,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Recent Posts</h2>
-          <Link href="/blog" className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline">
+          <Link href="/blog" className="text-sm text-emerald-600 dark:text-emerald-400 link-cyber">
             All posts →
           </Link>
         </div>

@@ -34,7 +34,7 @@ export default async function BlogPostPage({
       {/* Back link */}
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors mb-10"
+        className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 mb-10 link-cyber"
       >
         ← All posts
       </Link>
@@ -76,7 +76,7 @@ export default async function BlogPostPage({
       <div className="border-t border-gray-100 dark:border-gray-800 mt-14 pt-8">
         <Link
           href="/blog"
-          className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline"
+          className="text-sm text-emerald-600 dark:text-emerald-400 link-cyber"
         >
           ← Back to all posts
         </Link>

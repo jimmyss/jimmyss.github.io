@@ -57,13 +57,13 @@ export default function AboutPage() {
               href="https://github.com/jimmyss"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="text-gray-500 dark:text-gray-400 link-cyber"
             >
               GitHub ↗
             </a>
             <a
               href="mailto:[your@email.com]"
-              className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="text-gray-500 dark:text-gray-400 link-cyber"
             >
               Email ↗
             </a>

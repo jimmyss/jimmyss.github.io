@@ -25,7 +25,7 @@ export default function Nav() {
               <Link
                 key={href}
                 href={href}
-                className="px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                className="px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 rounded-md btn-cyber"
               >
                 {label}
               </Link>
