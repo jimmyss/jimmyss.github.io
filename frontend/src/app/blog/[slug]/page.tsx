@@ -46,7 +46,7 @@ export default async function BlogPostPage({
           <span className="text-emerald-500 dark:text-emerald-300">cat {slug}.md</span>
           <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
         </p>
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
+        <h1 className="font-pixel text-xl sm:text-2xl text-gray-900 dark:text-gray-100 leading-loose mb-4">
           <GlitchText text={meta.title} interval={8000} />
         </h1>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">

@@ -17,7 +17,7 @@ export default function BlogPage() {
           <span className="text-emerald-500 dark:text-emerald-300">ls ./blog/</span>
           <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
         </p>
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+        <h1 className="font-pixel text-2xl sm:text-3xl text-gray-900 dark:text-gray-100 leading-loose mb-3">
           <GlitchText text="Blog" interval={6000} />
         </h1>
         <p className="text-gray-500 dark:text-gray-400 text-lg">

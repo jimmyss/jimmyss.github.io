@@ -42,7 +42,7 @@ export default function AboutPage() {
             <span className="text-emerald-500 dark:text-emerald-300">cat ./about.md</span>
             <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
           </p>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+          <h1 className="font-pixel text-xl sm:text-2xl text-gray-900 dark:text-gray-100 leading-loose mb-2">
             <GlitchText text="[Your Name]" interval={6000} />
           </h1>
           <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">

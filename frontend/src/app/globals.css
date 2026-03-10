@@ -84,6 +84,13 @@
 .dark .prose td { border-color: #374151; }
 .dark .prose th { background: #1f2937; }
 
+/* ── 8-bit pixel font utility ───────────────────────────────────── */
+.font-pixel {
+  font-family: var(--font-press-start, monospace);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+
 /* ── Hacker / Terminal Effects ──────────────────────────────────── */
 
 /* Blinking block cursor */
@@ -96,10 +103,10 @@
   font-family: var(--font-geist-mono, monospace);
 }
 
-/* Scanline overlay for hero */
-.hero-scanlines::after {
+/* Global CRT scanline overlay — fixed, covers all pages */
+body::after {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     to bottom,
@@ -109,7 +116,7 @@
     rgba(0, 0, 0, 0.025) 4px
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Neon glow on emerald text (apply with .neon-glow) */
@@ -142,6 +149,7 @@
 .btn-cyber {
   position: relative;
   overflow: hidden;
+  border-radius: 0; /* 8-bit: square corners override any rounded-* class */
   transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
 }
 

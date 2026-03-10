@@ -60,7 +60,7 @@ export default function ProjectsPage() {
           <span className="text-emerald-500 dark:text-emerald-300">ls -la ./projects/</span>
           <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
         </p>
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+        <h1 className="font-pixel text-2xl sm:text-3xl text-gray-900 dark:text-gray-100 leading-loose mb-3">
           <GlitchText text="Projects" interval={6000} />
         </h1>
         <p className="text-gray-500 dark:text-gray-400 text-lg">
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
           return (
             <article
               key={i}
-              className="flex flex-col p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
+              className="flex flex-col p-6 border-2 border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:border-emerald-400 dark:hover:border-emerald-600 shadow-[3px_3px_0_#d1d5db] dark:shadow-[3px_3px_0_#10b981] transition-colors"
             >
               <div className="flex items-start justify-between gap-3 mb-3">
                 <h2 className="font-semibold text-gray-900 dark:text-gray-100 leading-snug">{project.title}</h2>

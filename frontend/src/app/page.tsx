@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getAllPostMetas, formatDate } from '@/lib/posts';
-import MatrixRain from '@/app/components/MatrixRain';
 import GlitchText from '@/app/components/GlitchText';
 import TypewriterText from '@/app/components/TypewriterText';
 
@@ -34,21 +33,13 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
-        {/* Matrix rain background */}
-        <MatrixRain className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] dark:opacity-[0.13]" />
-
-        {/* Scanline overlay */}
-        <div className="hero-scanlines absolute inset-0 pointer-events-none z-10" />
-
-        {/* Hero content sits above effects */}
-        <div className="relative z-20">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-16 pb-20">
           <p className="text-emerald-600 dark:text-emerald-400 text-sm font-mono mb-4">
             <span className="opacity-50">root@simon:~$</span>{' '}
             <span className="text-emerald-500 dark:text-emerald-300">./init.sh</span>
             <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
           </p>
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
+          <h1 className="font-pixel text-3xl sm:text-4xl text-gray-900 dark:text-gray-100 leading-loose mb-6">
             <GlitchText text="Simon Du" />
           </h1>
           <p className="text-xl text-gray-500 dark:text-gray-400 mb-6">
@@ -71,7 +62,6 @@ export default function HomePage() {
               Read My Blogs!
             </Link>
           </div>
-        </div>
       </section>
 
       <div className="border-t border-gray-100 dark:border-gray-800" />
@@ -88,7 +78,7 @@ export default function HomePage() {
           {featuredProjects.map((project, i) => (
             <div
               key={i}
-              className="group p-5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
+              className="group p-5 border-2 border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:border-emerald-400 dark:hover:border-emerald-600 shadow-[3px_3px_0_#d1d5db] dark:shadow-[3px_3px_0_#10b981] transition-colors"
             >
               <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">{project.title}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{project.description}</p>
