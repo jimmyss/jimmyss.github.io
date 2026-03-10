@@ -3,10 +3,10 @@ import { getAllPostMetas, formatDate } from '@/lib/posts';
 
 const featuredProjects = [
   {
-    title: '[Project Title]',
-    description: '[A short description of what this project does and the problem it solves.]',
-    tech: ['Next.js', 'TypeScript'],
-    github: 'https://github.com/jimmyss',
+    title: 'Job360',
+    description: 'Multi-agent AI system that intelligently customizes resumes for specific job postings — upload your resume, find a role, and get an AI-tailored version in seconds.',
+    tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'OpenAI'],
+    github: 'https://github.com/akumari-cmu-F25/Job360',
     live: '',
   },
   {
@@ -33,30 +33,29 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
         <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium tracking-wide uppercase mb-4">
-          Hello, I&apos;m
+          Welcome to my Blog! 
         </p>
         <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
-          [Your Name]
+          Simon Du
         </h1>
         <p className="text-xl text-gray-500 dark:text-gray-400 mb-6">
-          [Your Title / Role — e.g. Software Engineer · CS Student]
+          Software Engineer · Cloud Infra Engineer · CS Student@CMU
         </p>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-10">
-          [A one or two sentence intro. What do you work on? What are you interested in?
-          This is the first thing visitors see, so keep it clear and personal.]
+          Focusing on cloud infrastructure for AI workflow. Eagerly finding people who want to build cool stuff together. Life experiencer! 🎮 📖 🏀 🤿 🎵 🧳
         </p>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/projects"
             className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-medium transition-colors"
           >
-            View Projects
+            See my Projects!
           </Link>
           <Link
             href="/blog"
             className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors"
           >
-            Read Blog
+            Read My Blogs!
           </Link>
         </div>
       </section>
