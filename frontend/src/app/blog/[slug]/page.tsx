@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllPostMetas, getPostBySlug, formatDate } from '@/lib/posts';
+import GlitchText from '@/app/components/GlitchText';
 
 export async function generateStaticParams() {
   return getAllPostMetas().map((post) => ({ slug: post.slug }));
@@ -40,8 +41,13 @@ export default async function BlogPostPage({
 
       {/* Post header */}
       <header className="mb-10">
+        <p className="text-sm font-mono mb-4">
+          <span className="opacity-50 text-gray-600 dark:text-gray-400">root@simon:~/blog$</span>{' '}
+          <span className="text-emerald-500 dark:text-emerald-300">cat {slug}.md</span>
+          <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
+        </p>
         <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
-          {meta.title}
+          <GlitchText text={meta.title} interval={8000} />
         </h1>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <time className="text-sm text-gray-400 dark:text-gray-500">{formatDate(meta.date)}</time>

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import GlitchText from '@/app/components/GlitchText';
+import TypewriterText from '@/app/components/TypewriterText';
 
 export const metadata: Metadata = { title: 'About' };
 
@@ -35,8 +37,17 @@ export default function AboutPage() {
           J
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">[Your Name]</h1>
-          <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">[Your Title / Role]</p>
+          <p className="text-sm font-mono mb-2">
+            <span className="opacity-50 text-gray-600 dark:text-gray-400">root@simon:~$</span>{' '}
+            <span className="text-emerald-500 dark:text-emerald-300">cat ./about.md</span>
+            <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
+          </p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+            <GlitchText text="[Your Name]" interval={6000} />
+          </h1>
+          <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">
+            <TypewriterText text="[Your Title / Role]" startDelay={200} speed={28} />
+          </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
             [Write a few sentences about yourself here — who you are, what you work on,
             what you care about, and what you&apos;re looking for. Keep it genuine and conversational.]
@@ -63,7 +74,7 @@ export default function AboutPage() {
       {/* ── Experience ──────────────────────────────────────────── */}
       <section className="mb-14">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
-          Experience
+          <span className="font-mono text-emerald-500 dark:text-emerald-400 mr-2 opacity-60">&gt;_</span>Experience
         </h2>
         <div className="space-y-6">
           {experience.map((exp) => (
@@ -82,7 +93,7 @@ export default function AboutPage() {
       {/* ── Education ───────────────────────────────────────────── */}
       <section className="mb-14">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
-          Education
+          <span className="font-mono text-emerald-500 dark:text-emerald-400 mr-2 opacity-60">&gt;_</span>Education
         </h2>
         <div className="space-y-6">
           {education.map((edu) => (
@@ -103,7 +114,7 @@ export default function AboutPage() {
       {/* ── Skills ──────────────────────────────────────────────── */}
       <section>
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-6 pb-3 border-b border-gray-200 dark:border-gray-800">
-          Skills
+          <span className="font-mono text-emerald-500 dark:text-emerald-400 mr-2 opacity-60">&gt;_</span>Skills
         </h2>
         <div className="space-y-4">
           {skills.map(({ category, items }) => (
@@ -112,9 +123,9 @@ export default function AboutPage() {
                 {category}
               </p>
               <div className="flex flex-wrap gap-2">
-                {items.map((item) => (
+                {items.map((item, i) => (
                   <span
-                    key={item}
+                    key={i}
                     className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
                   >
                     {item}

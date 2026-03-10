@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import GlitchText from '@/app/components/GlitchText';
+import TypewriterText from '@/app/components/TypewriterText';
 
 export const metadata: Metadata = { title: 'Projects' };
 
@@ -53,18 +55,25 @@ export default function ProjectsPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">Projects</h1>
+        <p className="text-sm font-mono mb-4">
+          <span className="opacity-50 text-gray-600 dark:text-gray-400">root@simon:~$</span>{' '}
+          <span className="text-emerald-500 dark:text-emerald-300">ls -la ./projects/</span>
+          <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
+        </p>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+          <GlitchText text="Projects" interval={6000} />
+        </h1>
         <p className="text-gray-500 dark:text-gray-400 text-lg">
-          Things I&apos;ve built, am building, or am experimenting with.
+          <TypewriterText text="Things I've built, am building, or am experimenting with." startDelay={200} speed={25} />
         </p>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-6">
-        {projects.map((project) => {
+        {projects.map((project, i) => {
           const badge = project.status ? statusLabel[project.status] : null;
           return (
             <article
-              key={project.title}
+              key={i}
               className="flex flex-col p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
             >
               <div className="flex items-start justify-between gap-3 mb-3">
@@ -79,9 +88,9 @@ export default function ProjectsPage() {
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-1.5 mb-5">
-                {project.tech.map((t) => (
+                {project.tech.map((t, j) => (
                   <span
-                    key={t}
+                    key={j}
                     className="px-2 py-0.5 text-xs bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded border border-gray-200 dark:border-gray-700"
                   >
                     {t}

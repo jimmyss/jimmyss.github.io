@@ -14,9 +14,9 @@ export default function Nav() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
         <Link
           href="/"
-          className="font-bold text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shrink-0"
+          className="font-mono font-bold text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shrink-0"
         >
-          S1m0n Not Found
+          S1m0n Not Found<span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-0.5">_</span>
         </Link>
 
         <div className="flex items-center gap-1">

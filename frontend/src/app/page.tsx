@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { getAllPostMetas, formatDate } from '@/lib/posts';
+import MatrixRain from '@/app/components/MatrixRain';
+import GlitchText from '@/app/components/GlitchText';
+import TypewriterText from '@/app/components/TypewriterText';
 
 const featuredProjects = [
   {
@@ -31,32 +34,43 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
-        <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium tracking-wide uppercase mb-4">
-          Welcome to my Blog! 
-        </p>
-        <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
-          Simon Du
-        </h1>
-        <p className="text-xl text-gray-500 dark:text-gray-400 mb-6">
-          Software Engineer · Cloud Infra Engineer · CS Student@CMU
-        </p>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-10">
-          Focusing on cloud infrastructure for AI workflow. Eagerly finding people who want to build cool stuff together. Life experiencer! 🎮 📖 🏀 🤿 🎵 🧳
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href="/projects"
-            className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-medium transition-colors"
-          >
-            See my Projects!
-          </Link>
-          <Link
-            href="/blog"
-            className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors"
-          >
-            Read My Blogs!
-          </Link>
+      <section className="relative overflow-hidden max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
+        {/* Matrix rain background */}
+        <MatrixRain className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] dark:opacity-[0.13]" />
+
+        {/* Scanline overlay */}
+        <div className="hero-scanlines absolute inset-0 pointer-events-none z-10" />
+
+        {/* Hero content sits above effects */}
+        <div className="relative z-20">
+          <p className="text-emerald-600 dark:text-emerald-400 text-sm font-mono mb-4">
+            <span className="opacity-50">root@simon:~$</span>{' '}
+            <span className="text-emerald-500 dark:text-emerald-300">./init.sh</span>
+            <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
+            <GlitchText text="Simon Du" />
+          </h1>
+          <p className="text-xl text-gray-500 dark:text-gray-400 mb-6">
+            <TypewriterText text="Software Engineer · Cloud Infra Engineer · CS Student@CMU" startDelay={400} speed={30} />
+          </p>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-10">
+            Focusing on cloud infrastructure for AI workflow. Eagerly finding people who want to build cool stuff together. Life experiencer! 🎮 📖 🏀 🤿 🎵 🧳
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/projects"
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-medium transition-colors"
+            >
+              See my Projects!
+            </Link>
+            <Link
+              href="/blog"
+              className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg font-medium transition-colors"
+            >
+              Read My Blogs!
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -71,9 +85,9 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, i) => (
             <div
-              key={project.title}
+              key={i}
               className="group p-5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
             >
               <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">{project.title}</h3>

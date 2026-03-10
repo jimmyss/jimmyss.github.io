@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPostMetas, formatDate } from '@/lib/posts';
+import GlitchText from '@/app/components/GlitchText';
+import TypewriterText from '@/app/components/TypewriterText';
 
 export const metadata: Metadata = { title: 'Blog' };
 
@@ -10,9 +12,16 @@ export default function BlogPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">Blog</h1>
+        <p className="text-sm font-mono mb-4">
+          <span className="opacity-50 text-gray-600 dark:text-gray-400">root@simon:~$</span>{' '}
+          <span className="text-emerald-500 dark:text-emerald-300">ls ./blog/</span>
+          <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
+        </p>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+          <GlitchText text="Blog" interval={6000} />
+        </h1>
         <p className="text-gray-500 dark:text-gray-400 text-lg">
-          Writing about things I learn and find interesting.
+          <TypewriterText text="Writing about things I learn and find interesting." startDelay={200} speed={25} />
         </p>
       </div>
 
