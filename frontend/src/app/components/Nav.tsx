@@ -12,6 +12,14 @@ const links = [
   { href: '/about', label: 'About' },
 ];
 
+// ── Album tracklist ────────────────────────────────────────────────
+// Add your .mp3 files to frontend/public/music/ and list them here.
+const TRACKS = [
+  { title: 'BGM 01', file: '/music/She Her Her Hers - Bloody Mary Girl.mp3' },
+  { title: 'BGM 02', file: '/music/bgm-02.mp3' },
+  { title: 'BGM 03', file: '/music/bgm-03.mp3' },
+];
+
 function toTerminalPath(pathname: string) {
   if (pathname === '/') return '~';
   return '~' + pathname;
@@ -46,20 +54,40 @@ export default function Nav() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  // playingRef mirrors `playing` state so closures in effects always see current value
+  const playingRef = useRef(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // ── Init audio element once ──────────────────────────────────────
   useEffect(() => {
     setMounted(true);
-    // Place your audio file at: frontend/public/music/bgm.mp3
-    const audio = new Audio('/music/bgm.mp3');
-    audio.loop = true;
+    const handleEnded = () => {
+      // Auto-advance to next track when current one finishes
+      setCurrentIndex(prev => (prev + 1) % TRACKS.length);
+    };
+    const audio = new Audio(TRACKS[0].file);
+    audio.loop = false;
     audio.volume = 0.35;
+    audio.addEventListener('ended', handleEnded);
     audioRef.current = audio;
     return () => {
+      audio.removeEventListener('ended', handleEnded);
       audio.pause();
       audio.src = '';
     };
   }, []);
+
+  // ── Swap track when index changes ────────────────────────────────
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.src = TRACKS[currentIndex].file;
+    audio.load();
+    if (playingRef.current) {
+      audio.play().catch(() => {});
+    }
+  }, [currentIndex]);
 
   const toggleMusic = () => {
     const audio = audioRef.current;
@@ -67,11 +95,16 @@ export default function Nav() {
     if (playing) {
       audio.pause();
       setPlaying(false);
+      playingRef.current = false;
     } else {
       audio.play().catch(() => {});
       setPlaying(true);
+      playingRef.current = true;
     }
   };
+
+  const prevTrack = () => setCurrentIndex(prev => (prev - 1 + TRACKS.length) % TRACKS.length);
+  const nextTrack = () => setCurrentIndex(prev => (prev + 1) % TRACKS.length);
 
   const terminalPath = toTerminalPath(pathname);
 
@@ -126,17 +159,32 @@ export default function Nav() {
         <span className="text-blue-900">UTF-8</span>
       </div>
 
-      {/* ── Music player ─────────────────────────────────────────── */}
-      <div className="flex items-center px-2 border-l border-gray-800">
+      {/* ── Album music player ───────────────────────────────────── */}
+      <div className="flex items-center gap-0.5 px-2 border-l border-gray-800">
+        <button
+          onClick={prevTrack}
+          aria-label="Previous track"
+          className="text-gray-600 hover:text-emerald-400 transition-colors text-[10px] px-0.5"
+        >
+          ◄
+        </button>
         <button
           onClick={toggleMusic}
-          aria-label={playing ? 'Pause music' : 'Play music'}
-          title={playing ? 'Pause BGM' : 'Play BGM (place file at public/music/bgm.mp3)'}
-          className="flex items-center gap-1 text-gray-500 hover:text-emerald-400 transition-colors font-mono text-[10px]"
+          aria-label={playing ? 'Pause' : 'Play'}
+          className="text-gray-500 hover:text-emerald-400 transition-colors text-[10px] px-0.5"
         >
-          <span>{playing ? '⏸' : '♪'}</span>
-          <span className="hidden sm:inline">BGM</span>
+          {playing ? '⏸' : '♪'}
         </button>
+        <button
+          onClick={nextTrack}
+          aria-label="Next track"
+          className="text-gray-600 hover:text-emerald-400 transition-colors text-[10px] px-0.5"
+        >
+          ►
+        </button>
+        <span className="hidden sm:inline text-gray-600 text-[10px] ml-1 truncate max-w-[72px]">
+          {TRACKS[currentIndex].title}
+        </span>
       </div>
 
       {/* ── Theme toggle (always visible) ───────────────────────── */}
