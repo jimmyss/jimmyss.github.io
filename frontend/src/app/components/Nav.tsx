@@ -16,8 +16,8 @@ const links = [
 // Add your .mp3 files to frontend/public/music/ and list them here.
 const TRACKS = [
   { title: 'BGM 01', file: '/music/She Her Her Hers - Bloody Mary Girl.mp3' },
-  { title: 'BGM 02', file: '/music/bgm-02.mp3' },
-  { title: 'BGM 03', file: '/music/bgm-03.mp3' },
+  { title: 'BGM 02', file: '/music/Odoriko - Vaundy.mp3' },
+  { title: 'BGM 03', file: '/music/Coldplay - Sparks.mp3' },
 ];
 
 function toTerminalPath(pathname: string) {
