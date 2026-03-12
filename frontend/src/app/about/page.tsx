@@ -1,13 +1,16 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import GlitchText from '@/app/components/GlitchText';
 import TypewriterText from '@/app/components/TypewriterText';
 
 export const metadata: Metadata = { title: 'About' };
 
 const skills = [
-  { category: 'Languages', items: ['[Language]', '[Language]', '[Language]'] },
-  { category: 'Frameworks', items: ['[Framework]', '[Framework]', '[Framework]'] },
-  { category: 'Tools', items: ['[Tool]', '[Tool]', '[Tool]'] },
+  { category: 'Languages', items: ['Python', 'Java', 'C++', 'GoLang', 'JavaScript'] },
+  { category: 'Frameworks', items: ['React', 'Node.js', 'Spring', 'Flask', 'Django', 'Electron'] },
+  { category: 'Cloud and DevOps', items: ['AWS', 'GCP', 'Azure', 'CI/CD', 'Kubernetes', 'Docker', 'Terraform', 'Helm', 'Git', 'Prometheus'] },
+  { category: 'AI', items: ['PyTorch', 'MCP', 'Prompt Engineering', 'LangGraph', 'RAG', 'Vercel'] },
+  { category: 'Others', items: ['Spark', 'Kafka', 'RabbitMQ', 'Hadoop', 'Redis', 'MySQL', 'MongoDB', 'JIRA', 'Postman', 'JUnit5'] },
 ];
 
 const experience = [
@@ -15,17 +18,43 @@ const experience = [
     company: 'Snapbit LLC',
     role: 'Full Stack Developer',
     period: '[2025.05.01] – [2025.10.01]',
-    description: '[Brief description of what you did, what you built, or what you learned.]',
+    description: 'Led full-stack development and AWS cloud architecture for Enterprise Data Governance system, driving company\'s strategic expansion from B2C to B2B markets.',
+  },
+  {
+    company: 'Beijing Jiaotong University',
+    role: 'Software Engineer',
+    period: '[2023.12.12] – [2024.06.01]',
+    description: 'Independently architected and developed cloud-native, AI-powered road object annotation platform with text-to-label prompts, streamlining the autonomous driving research team’s workflow and cutting labeled dataset generation.',
+  },
+  {
+    company: 'Motovis Intelligent Technology CO., LTD.',
+    role: 'Toolchain Development Engineer',
+    period: '[2023.09.15] – [2023.12.10]',
+    description: 'Collaborated on the development and optimization of a real-time toolchain for an autonomous driving parking perception model, specializing in model inference workflows.',
+  },
+  {
+    company: 'GBCOM Communication Technology Co., Ltd.',
+    role: 'Python Developer',
+    period: '[2022.08.15] – [2023.08.05]',
+    description: 'Designed and deployed a financial automation system that automated data entry and report reconciliation, reducing email average preparation time by 95% (10min to 30s). ',
   },
 ];
 
 const education = [
   {
-    institution: '[University Name]',
-    degree: '[Degree, Major]',
-    period: '[Year] – [Year]',
-    note: '[Optional: GPA, honors, relevant coursework, clubs, etc.]',
+    institution: 'Carnegie Mellon University',
+    degree: 'Master of Science in Information Technology - Mobile',
+    period: '[2024.09] – [2026.05]',
+    activities: '[15-319] Cloud Computing TA, [14-795] AI in Information Security TA',
+    coursework: '15-513 Introduction to Computer Systems, 15-619 Advanced Cloud Computing, 14-736 Distributed System, 17-780 API Design and Implementation',
   },
+  {
+    institution: 'Beijing Jiaotong University',
+    degree: 'Bachelor of Engineering in Software Engineering',
+    period: '[2020.09] – [2024.06]',
+    activities: 'Science and Technology Association - Head of Popular Science Department, Student Union - Vice Minister of External Relations',
+    coursework: 'Data Structure, Computer Networks, Operating Systems, Database Systems, Software Engineering, Object-Oriented Programming, Compiler Principles',
+  }
 ];
 
 export default function AboutPage() {
@@ -33,8 +62,19 @@ export default function AboutPage() {
     <main className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
       {/* ── Profile ─────────────────────────────────────────────── */}
       <section className="flex flex-col sm:flex-row gap-8 items-start mb-16">
-        <div className="w-28 h-28 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-white text-4xl font-bold shrink-0 select-none">
-          J
+        <div className="relative w-28 h-28 shrink-0 group cursor-pointer">
+          <Image
+            src="/avatar.jpg"
+            alt="Simon Du"
+            fill
+            className="rounded-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+          />
+          <Image
+            src="/avatar-hover.jpg"
+            alt="Simon Du"
+            fill
+            className="rounded-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          />
         </div>
         <div>
           <p className="text-sm font-mono mb-2">
@@ -43,14 +83,13 @@ export default function AboutPage() {
             <span className="terminal-cursor text-emerald-500 dark:text-emerald-400 ml-1">▊</span>
           </p>
           <h1 className="font-pixel text-xl sm:text-2xl text-gray-900 dark:text-gray-100 leading-loose mb-2">
-            <GlitchText text="[Your Name]" interval={6000} />
+            <GlitchText text="Simon Du" interval={6000} />
           </h1>
           <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">
-            <TypewriterText text="[Your Title / Role]" startDelay={200} speed={28} />
+            <TypewriterText text="[Full-Stack Engineer -> Cloud and Distributed System Engineer]" startDelay={200} speed={28} />
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-            [Write a few sentences about yourself here — who you are, what you work on,
-            what you care about, and what you&apos;re looking for. Keep it genuine and conversational.]
+            [Think as I move forward. Passionate about interesting and reliable AI workflows. Work if for living, create is for life.]
           </p>
           <div className="flex gap-4 mt-5 text-sm">
             <a
@@ -62,7 +101,7 @@ export default function AboutPage() {
               GitHub ↗
             </a>
             <a
-              href="mailto:[your@email.com]"
+              href="mailto:shimaod@andrew.cmu.edu"
               className="text-gray-500 dark:text-gray-400 link-cyber"
             >
               Email ↗
@@ -102,8 +141,11 @@ export default function AboutPage() {
               <div>
                 <p className="font-semibold text-gray-900 dark:text-gray-100">{edu.degree}</p>
                 <p className="text-emerald-600 dark:text-emerald-400 text-sm mb-1">{edu.institution}</p>
-                {edu.note && (
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.note}</p>
+                {edu.activities && (
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.activities}</p>
+                )}
+                {edu.coursework && (
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.coursework}</p>
                 )}
               </div>
             </div>
